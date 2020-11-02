@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    // audit을 사용할때 유저의 이름을 가져올 수 있게하는 빈
+    // audit을 사용 할 때 유저의 이름을 가져올 수 있게하는 빈
     @Bean
     public AuditorAware<String> defaultAuditorAware() {
         return () -> {
