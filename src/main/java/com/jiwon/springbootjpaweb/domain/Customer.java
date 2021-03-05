@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.envers.Audited;
 
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -28,7 +29,9 @@ public class Customer extends AbstractAuditable<Long> {
     @Column(name = "password")
     private String password;
 
+
     @Column(name = "name", length = 200)
+    @Transient
     private String name;
 
     @Lob
