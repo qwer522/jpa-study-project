@@ -1,7 +1,8 @@
 package com.jiwon.springbootjpaweb.web;
 
 import com.jiwon.springbootjpaweb.data.domain.PrincipalDetails;
-import com.jiwon.springbootjpaweb.service.CustomerService;
+import com.jiwon.springbootjpaweb.representative.MemberRequest;
+import com.jiwon.springbootjpaweb.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.jiwon.springbootjpaweb.representative.CustomerRequest;
 
 import java.net.URI;
 
@@ -20,7 +20,7 @@ import java.net.URI;
 @RequiredArgsConstructor
 public class CustomerApiController {
 
-    private final CustomerService customerService;
+    private final MemberService memberService;
 
     @GetMapping("/")
     public String main() {
@@ -38,14 +38,14 @@ public class CustomerApiController {
     }
 
     @PostMapping("/login/join")
-    public String loginJoin(CustomerRequest customerRequest) {
-        customerService.save(customerRequest);
+    public String loginJoin(MemberRequest memberRequest) {
+        memberService.save(memberRequest);
         return "redirect:/login";
     }
 
     @GetMapping("/login/update/{id}")
     public String update(@PathVariable(name="id")Long id) {
-        customerService.update(id);
+        memberService.update(id);
         return "redirect:/";
     }
 

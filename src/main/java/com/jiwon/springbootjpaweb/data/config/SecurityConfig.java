@@ -1,6 +1,6 @@
 package com.jiwon.springbootjpaweb.data.config;
 
-import com.jiwon.springbootjpaweb.service.CustomerService;
+import com.jiwon.springbootjpaweb.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private CustomerService customerService;
+    private MemberService memberService;
 
     // 패스워드 인코딩을 사용하기 위한 빈
     @Bean
@@ -75,6 +75,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(customerService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
     }
 }

@@ -1,6 +1,6 @@
 package com.jiwon.springbootjpaweb.data.domain;
 
-import com.jiwon.springbootjpaweb.domain.Customer;
+import com.jiwon.springbootjpaweb.domain.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -16,9 +16,9 @@ import java.util.Collection;
 
 public class PrincipalDetails implements UserDetails {
 
-    private Customer user;
+    private Member user;
 
-    public PrincipalDetails(Customer user) {
+    public PrincipalDetails(Member user) {
         this.user = user;
     }
 
