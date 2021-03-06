@@ -1,7 +1,7 @@
 package com.jiwon.springbootjpaweb.service;
 
 import com.jiwon.springbootjpaweb.data.domain.PrincipalDetails;
-import com.jiwon.springbootjpaweb.domain.Member;
+import com.jiwon.springbootjpaweb.domain.member.Member;
 import com.jiwon.springbootjpaweb.domain.Role;
 import com.jiwon.springbootjpaweb.repository.MemberRepository;
 import com.jiwon.springbootjpaweb.representative.MemberRequest;

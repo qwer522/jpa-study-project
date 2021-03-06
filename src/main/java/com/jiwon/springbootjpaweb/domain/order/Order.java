@@ -1,9 +1,11 @@
-package com.jiwon.springbootjpaweb.domain;
+package com.jiwon.springbootjpaweb.domain.order;
 
+import com.jiwon.springbootjpaweb.domain.member.Member;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,9 +15,9 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
-@Audited    // 이 어노테이션이 테이블을 생성
 @Table(name = "tn_order")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Order {
 
     @Id

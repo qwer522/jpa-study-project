@@ -1,7 +1,9 @@
-package com.jiwon.springbootjpaweb.domain;
+package com.jiwon.springbootjpaweb.domain.member;
 
 import com.jiwon.springbootjpaweb.data.domain.AbstractAuditable;
 import com.jiwon.springbootjpaweb.data.domain.GenerateKey;
+import com.jiwon.springbootjpaweb.domain.Role;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,7 @@ import java.util.List;
 @Audited    // 이 어노테이션이 테이블을 생성
 @Table(name = "tn_member")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Member extends AbstractAuditable<Long> {
 
     @Id

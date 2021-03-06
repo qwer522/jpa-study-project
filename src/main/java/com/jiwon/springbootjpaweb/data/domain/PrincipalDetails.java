@@ -1,6 +1,6 @@
 package com.jiwon.springbootjpaweb.data.domain;
 
-import com.jiwon.springbootjpaweb.domain.Member;
+import com.jiwon.springbootjpaweb.domain.member.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

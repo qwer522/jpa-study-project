@@ -1,5 +1,7 @@
-package com.jiwon.springbootjpaweb.domain;
+package com.jiwon.springbootjpaweb.domain.order;
 
+import com.jiwon.springbootjpaweb.domain.product.Product;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "ti_order_product")
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrderProduct {
 
     @Id

@@ -1,9 +1,11 @@
-package com.jiwon.springbootjpaweb.domain;
+package com.jiwon.springbootjpaweb.domain.cart;
 
+import com.jiwon.springbootjpaweb.domain.member.Member;
+import com.jiwon.springbootjpaweb.domain.product.Product;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 
@@ -12,6 +14,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "tn_cart")
 @NoArgsConstructor
+@AllArgsConstructor
 public class Cart {
 
     @Id

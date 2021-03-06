@@ -1,9 +1,10 @@
-package com.jiwon.springbootjpaweb.domain;
+package com.jiwon.springbootjpaweb.domain.category;
 
+import com.jiwon.springbootjpaweb.domain.product.Product;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "ti_category_product")
 @NoArgsConstructor
+@AllArgsConstructor
 public class CategoryProduct {
 
     @Id
