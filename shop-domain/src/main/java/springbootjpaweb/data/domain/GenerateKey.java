@@ -3,10 +3,10 @@ package springbootjpaweb.data.domain;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static com.jiwon.springbootjpaweb.data.domain.GenerateKey.GenerateType.UUID;
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static springbootjpaweb.data.domain.GenerateKey.GenerateType.UUID;
 
 /**
  * String.class탕

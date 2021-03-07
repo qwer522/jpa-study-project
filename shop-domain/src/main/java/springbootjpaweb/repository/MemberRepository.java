@@ -1,10 +1,9 @@
 package springbootjpaweb.repository;
 
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import springbootjpaweb.domain.member.Member;
 import org.springframework.stereotype.Repository;
+import springbootjpaweb.domain.member.Member;
 
 import java.util.Optional;
 

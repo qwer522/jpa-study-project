@@ -16,6 +16,7 @@ spring:
   flyway:
     enabled: true
     username: sa
+    locations: ['filesystem:./migration']
   h2:
   console:
     enabled: true

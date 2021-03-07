@@ -1,19 +1,19 @@
 package springbootjpaweb.service;
 
-import com.jiwon.springbootjpaweb.data.domain.PrincipalDetails;
-import com.jiwon.springbootjpaweb.domain.Role;
-import com.jiwon.springbootjpaweb.domain.member.Member;
-import com.jiwon.springbootjpaweb.repository.MemberRepository;
-import com.jiwon.springbootjpaweb.representative.MemberRequest;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
+import springbootjpaweb.data.domain.PrincipalDetails;
+import springbootjpaweb.domain.Role;
+import springbootjpaweb.domain.member.Member;
+import springbootjpaweb.repository.MemberRepository;
+import springbootjpaweb.representative.MemberRequest;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 // 시큐리티 설정에서 loginProcessingUrl("/login");
@@ -32,7 +32,7 @@ public class MemberService implements UserDetailsService {
     }
 
     @Transactional
-    public void save(MemberRequest  memberRequest) {
+    public void save(MemberRequest memberRequest) {
         Member member = Member.builder()
                 .email(memberRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(memberRequest.getPassword()))

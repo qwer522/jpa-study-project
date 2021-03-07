@@ -1,14 +1,21 @@
 package springbootjpaweb.domain.product;
 
-import com.jiwon.springbootjpaweb.domain.category.CategoryProduct;
-import com.jiwon.springbootjpaweb.domain.order.OrderProduct;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
+import springbootjpaweb.domain.category.CategoryProduct;
+import springbootjpaweb.domain.order.OrderProduct;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 

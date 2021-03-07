@@ -1,11 +1,20 @@
 package springbootjpaweb.domain.cart;
 
-import com.jiwon.springbootjpaweb.domain.member.Member;
-import com.jiwon.springbootjpaweb.domain.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import springbootjpaweb.domain.member.Member;
+import springbootjpaweb.domain.product.Product;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
 @Entity
 @Getter

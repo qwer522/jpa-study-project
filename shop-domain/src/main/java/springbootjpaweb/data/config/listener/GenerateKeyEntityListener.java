@@ -1,9 +1,9 @@
 package springbootjpaweb.data.config.listener;
 
-import com.jiwon.springbootjpaweb.data.domain.GenerateKey;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.Assert;
 import org.springframework.util.ReflectionUtils;
+import springbootjpaweb.data.domain.GenerateKey;
 
 import javax.persistence.PrePersist;
 

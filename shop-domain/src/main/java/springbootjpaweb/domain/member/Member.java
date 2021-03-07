@@ -1,14 +1,23 @@
 package springbootjpaweb.domain.member;
 
-import com.jiwon.springbootjpaweb.data.domain.AbstractAuditable;
-import com.jiwon.springbootjpaweb.data.domain.GenerateKey;
-import com.jiwon.springbootjpaweb.domain.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.envers.Audited;
+import springbootjpaweb.data.domain.AbstractAuditable;
+import springbootjpaweb.data.domain.GenerateKey;
+import springbootjpaweb.domain.Role;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity

@@ -1,4 +1,4 @@
-package com.jiwon.springbootjpaweb;
+package springbootjpaweb;
 
 import lombok.extern.slf4j.Slf4j;
 import org.flywaydb.core.Flyway;
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Slf4j
-@ConfigurationPropertiesScan("com.jiwon.springbootjpaweb")
+@ConfigurationPropertiesScan("springbootjpaweb")
 @EnableJpaAuditing
 @SpringBootApplication
 @EnableWebMvc
