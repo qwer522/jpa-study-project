@@ -1,4 +1,4 @@
-# shop-frontpage
+# shop-front-page
 
 ## Project setup
 ```

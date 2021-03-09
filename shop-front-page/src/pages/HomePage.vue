@@ -663,6 +663,7 @@ import FeaturedProduct from "@/components/home/FeaturedProduct";
 import TrendyProduct from "@/components/home/TrendyProduct";
 
 export default {
+  name: 'HomePage',
   components: {
     SlideBanner,
     FeaturedProduct,
