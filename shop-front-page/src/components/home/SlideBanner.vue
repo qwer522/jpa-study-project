@@ -50,21 +50,24 @@
     </div>
   </section>
 </template>
-<script>
-import { mapState } from 'vuex';
 
-export default {
-  data(){
-    return {
+
+<script>
+  import { mapState } from 'vuex';
+  import { sliderJs } from '../../../public/js/home/sliderBanner';
+
+  export default {
+    data(){
+      return {
+      }
+    },
+    computed: {
+      ...mapState('banner',{
+        banners: state => state.mainBanners
+      })
+    },
+    mounted() {
+      sliderJs.init();
     }
-  },
-  computed: {
-    ...mapState('banner',{
-      banners: state => state.mainBanners
-    })
-  },
-  created() {
-    this.$store.dispatch('banner/setMainBanners');
   }
-}
 </script>

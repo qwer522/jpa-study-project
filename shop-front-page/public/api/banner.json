@@ -2,21 +2,21 @@
   {
     "title": "메인 상품1",
     "subtitle": "Great Lookbook 2021",
-    "image": "https://picsum.photos/1920/570/?image=814"
+    "image": "images/slider/slide-2.jpg"
   },
   {
     "title": "메인 상품2",
     "subtitle": "메인 상품2 설명",
-    "image": "https://picsum.photos/1920/570/?image=815"
+    "image": "images/slider/slide-2.jpg"
   },
   {
     "title": "메인 상품3",
     "subtitle": "메인 상품3 설명",
-    "image": "https://picsum.photos/1920/570/?image=816"
+    "image": "images/slider/slide-2.jpg"
   },
   {
     "title": "메인 상품4",
     "subtitle": "메인 상품4 설명",
-    "image": "https://picsum.photos/1920/570/?image=817"
+    "image": "images/slider/slide-2.jpg"
   }
 ]

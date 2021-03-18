@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col col-xs-12">
           <div class="section-title-s2">
-            <h2>Recent products</h2>
+            <h2>Best products</h2>
           </div>
           <a href="#" class="more-products">More products</a>
         </div>
@@ -525,6 +525,7 @@
 </template>
 <script>
 import { mapState } from 'vuex';
+import {bestProductsJS} from "../../../public/js/home/bestProducts";
 
 export default {
   computed: {
@@ -532,8 +533,8 @@ export default {
       products: state => state.bestProducts
     })
   },
-  created() {
-    this.$store.dispatch('product/setBestProducts');
+  mounted() {
+    bestProductsJS.init();
   }
 }
 </script>

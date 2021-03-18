@@ -1,20 +1,27 @@
-import bannerApi from '@/api/banner';
-
 export default {
     namespaced: true,
     state: {
-        mainBanners: []
-    },
-    mutations: {
-        setMainBanners(state, banners) {
-            state.mainBanners = [].concat(banners);
-        }
-    },
-    actions: {
-        async setMainBanners({ commit }) {
-            const response = await bannerApi.getMainSlideBanners();
-
-            commit('setMainBanners', response.data);
-        }
+        mainBanners: [
+            {
+                "title": "메인 상품1",
+                "subtitle": "Great Lookbook 2021",
+                "image": "images/slider/slide-2.jpg"
+            },
+            {
+                "title": "메인 상품2",
+                "subtitle": "메인 상품2 설명",
+                "image": "images/slider/slide-2.jpg"
+            },
+            {
+                "title": "메인 상품3",
+                "subtitle": "메인 상품3 설명",
+                "image": "images/slider/slide-2.jpg"
+            },
+            {
+                "title": "메인 상품4",
+                "subtitle": "메인 상품4 설명",
+                "image": "images/slider/slide-2.jpg"
+            }
+        ]
     }
 }

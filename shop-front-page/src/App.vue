@@ -10,13 +10,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default {
-  mounted() {
-    $.initialize();
-
-  },
   components: {
     Header,
     Footer
+  },
+  created() {
+  },
+  mounted() {
+    $.initialize();
   }
 }
 </script>

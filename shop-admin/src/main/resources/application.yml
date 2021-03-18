@@ -17,6 +17,7 @@ spring:
     enabled: true
     username: sa
     locations: ['filesystem:./migration']
+    encoding: UTF-8
   h2:
   console:
     enabled: true
@@ -30,11 +31,12 @@ spring:
     username: sa
     password:
     driver-class-name: org.h2.Driver
+    initialization: true
   jpa:
     database-platform: H2
     show-sql: true
     hibernate:
-      ddl-auto: create
+#      ddl-auto: update
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:

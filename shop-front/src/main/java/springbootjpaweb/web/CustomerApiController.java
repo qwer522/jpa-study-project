@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import springbootjpaweb.data.domain.PrincipalDetails;
 import springbootjpaweb.representative.MemberRequest;
 import springbootjpaweb.service.MemberService;
+import springbootjpaweb.util.ApiResponse;
 
 import java.net.URI;
 
@@ -37,10 +39,10 @@ public class CustomerApiController {
         return "login-join";
     }
 
-    @PostMapping("/login/join")
-    public String loginJoin(MemberRequest memberRequest) {
+    @PostMapping("/member/join")
+    public ApiResponse<String> loginJoin(MemberRequest memberRequest) {
         memberService.save(memberRequest);
-        return "redirect:/login";
+        return ApiResponse.ok();
     }
 
     @GetMapping("/login/update/{id}")

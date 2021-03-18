@@ -9,10 +9,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <router-link :to="{name: 'home'}" tag="div" exact>
-            <a class="navbar-brand"><img src="images/logo.png" alt></a>
+          <router-link to="/" custom v-slot="{ navigate }">
+            <a @click="navigate" @keypress.enter="navigate" role="button" class="navbar-brand"><img src="images/logo.png" alt></a>
           </router-link>
-<!--          <a class="navbar-brand" href="index.html"><img src="../assets/images/logo.png" alt></a>-->
         </div>
         <div class="header-left">
           <div class="side-info-bars">
@@ -50,86 +49,29 @@
         <div id="navbar" class="navbar-collapse collapse navigation-holder">
           <button class="close-navbar"><i class="ti-close"></i></button>
           <ul class="nav navbar-nav">
-            <router-link :to="{name:'home'}" tag="li" active-class="menu-item-has-children current-menu-parent" exact>
-              <a>Home</a>
-            </router-link>
-            <li class="menu-item-has-children has-mega-menu">
-              <a href="#">Shop</a>
-              <ul class="mega-menu">
-                <li>
-                  <div class="mega-menu-content">
-                    <div class="col col-5">
-                      <span class="mega-menu-box-title">Shop style</span>
-                      <ul class="mega-menu-list-holder">
-                        <li><a href="shop.html">Shop left sidebar</a></li>
-                        <li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-                        <li><a href="shop-2.html">Shop full width</a></li>
-                      </ul>
-                    </div>
-                    <div class="col col-5">
-                      <span class="mega-menu-box-title">Shop single</span>
-                      <ul class="mega-menu-list-holder">
-                        <li><a href="shop-single.html">Horizental thumbnail</a></li>
-                        <li><a href="shop-single-vertical-thumbnail.html">Vertical
-                          thumbnail</a></li>
-                      </ul>
-                    </div>
-                    <div class="col col-5">
-                      <span class="mega-menu-box-title">Product style</span>
-                      <ul class="mega-menu-list-holder">
-                        <li><a href="shop.html">Product style 1</a></li>
-                        <li><a href="shop-right-sidebar.html">Product style 2</a></li>
-                        <li><a href="shop-2.html">Product style 3</a></li>
-                      </ul>
-                    </div>
-                    <div class="col col-5">
-                      <span class="mega-menu-box-title">Other pages</span>
-                      <ul class="mega-menu-list-holder">
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="my-account.html">My account</a></li>
-                      </ul>
-                    </div>
-                    <div class="col col-5">
-                      <span class="mega-menu-box-title">Other pages</span>
-                      <ul class="mega-menu-list-holder">
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="my-account.html">My account</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+            <li class="menu-item-has-children">
+              <router-link to="/shop" custom v-slot="{ navigate }">
+                <a @click="navigate" @keypress.enter="navigate" role="button">shop</a>
+              </router-link>
             </li>
             <li class="menu-item-has-children">
-              <a href="#">Pages</a>
-              <ul class="sub-menu">
-                <li><a href="404.html">404</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-
-              </ul>
+              <router-link to="/" custom v-slot="{ navigate }">
+                <a @click="navigate" @keypress.enter="navigate" role="button">best</a>
+              </router-link>
             </li>
             <li class="menu-item-has-children">
-              <a href="#">Blog</a>
-              <ul class="sub-menu">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="blog-masonary.html">Blog masonry</a></li>
-                <li><a href="blog-single.html">Blog single</a></li>
-              </ul>
+              <router-link to="/" custom v-slot="{ navigate }">
+                <a @click="navigate" @keypress.enter="navigate" role="button">event</a>
+              </router-link>
             </li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="index-rtl.html">RTL</a></li>
           </ul>
         </div><!-- end of nav-collapse -->
         <div class="header-right">
-          <router-link :to="{name: 'login'}" active-class="my-account-link" tag="div" exact>
-            <a><i class="icon-user"></i></a>
-          </router-link>
-<!--          <div class="my-account-link">-->
-<!--            <a href="my-account.html"><i class="icon-user"></i></a>-->
-<!--          </div>-->
+          <div class="my-account-link">
+            <router-link to="/login" custom v-slot="{ navigate }">
+              <a @click="navigate" @keypress.enter="navigate" role="button"><i class="icon-user"></i></a>
+            </router-link>
+          </div>
           <div class="wishlist-box">
             <a href="#"><i class="icon-heart-shape-outline"></i></a>
           </div>
@@ -175,8 +117,6 @@
 </template>
 <script>
 export default {
-  mounted() {
-    // $.initialize().shoppingCartToggle();
-  }
+
 }
 </script>

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class MemberRequest {
     private Long id;
     private String email;   //로그인 아이디
-    private String username;    //회원의 이름
     private String password;
+    private String name;    //회원의 이름
+    private String phone;
 }

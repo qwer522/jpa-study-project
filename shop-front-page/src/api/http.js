@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-let baseUrl = '';
+let baseUrl = 'http://localhost:8083';
 
 class Http {
     static parseUrl(url) {
         return `${baseUrl}/${url}`;
     }
-
     static get(url, data = null, config = {}) {
         if (data !== null) {
             config['params'] = data;

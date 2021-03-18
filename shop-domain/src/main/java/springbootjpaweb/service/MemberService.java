@@ -36,12 +36,14 @@ public class MemberService implements UserDetailsService {
         Member member = Member.builder()
                 .email(memberRequest.getEmail())
                 .password(bCryptPasswordEncoder.encode(memberRequest.getPassword()))
-                .name(memberRequest.getUsername())
+                .name(memberRequest.getName())
+                .phone(memberRequest.getPhone())
                 .role(Role.USER)
                 .build();
         // 객체화를 위해 따로 갱신.
         member.lastLoginDateNovation();
         memberRepository.save(member);
+
     }
 
     // 시큐리티 session(내부 Authentication(내부 UserDetails))
