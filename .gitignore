@@ -35,3 +35,6 @@ out/
 /.gradle/
 # queryDSL
 **/generated
+
+### shop-front static ###
+shop-front/src/main/resources/static/**
