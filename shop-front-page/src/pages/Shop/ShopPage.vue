@@ -30,14 +30,14 @@
 </template>
 <script>
 import { ShopPageJS } from "../../../public/js/shop/shopPage";
-import Category from "@/components/home/Category";
-import Search from "@/components/shop/Search";
-import PriceFilter from "@/components/shop/PriceFilter";
-import ProductCategory from "@/components/shop/ProductCategory";
-import ColorFilter from "@/components/shop/ColorFilter";
-import ProductTag from "@/components/shop/ProductTag";
-import Product from "@/components/shop/Product";
-import Pagination from "@/components/shop/Pagination";
+import Category from "@/pages/home/components/Category";
+import Search from "@/pages/Shop/components/Search";
+import PriceFilter from "@/pages/Shop/components/PriceFilter";
+import ProductCategory from "@/pages/Shop/components/ProductCategory";
+import ColorFilter from "@/pages/Shop/components/ColorFilter";
+import ProductTag from "@/pages/Shop/components/ProductTag";
+import Product from "@/pages/Shop/components/Product";
+import Pagination from "@/pages/Shop/components/Pagination";
 
 export default {
   name:'ShopPage',

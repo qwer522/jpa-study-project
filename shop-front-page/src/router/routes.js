@@ -3,27 +3,39 @@ import {
     ShopPage,
     LoginPage,
     SignUpPage,
+    ProductPage,
+    CartPage,
 } from '../pages';
 
 export const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'homePage',
         component: HomePage
     },
     {
         path: '/shop',
-        name: 'shop',
+        name: 'shopPage',
         component: ShopPage
     },
     {
         path: '/login',
-        name: 'login',
+        name: 'loginPage',
         component: LoginPage
     },
     {
         path: '/signup',
-        name: 'signup',
+        name: 'signupPage',
         component: SignUpPage
     },
+    {
+        path: '/product/:id',
+        name: 'productPage',
+        component: ProductPage
+    },
+    {
+        path: '/cart',
+        name: 'cartPage',
+        component: CartPage
+    }
 ];

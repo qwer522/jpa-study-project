@@ -14,8 +14,6 @@ export default {
     Header,
     Footer
   },
-  created() {
-  },
   mounted() {
     $.initialize();
   }

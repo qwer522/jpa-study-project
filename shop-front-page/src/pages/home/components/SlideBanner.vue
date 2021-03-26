@@ -54,7 +54,7 @@
 
 <script>
   import { mapState } from 'vuex';
-  import { sliderJs } from '../../../public/js/home/sliderBanner';
+  import { sliderJs } from '../../../../public/js/home/sliderBanner';
 
   export default {
     data(){

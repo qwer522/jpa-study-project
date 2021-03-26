@@ -9,13 +9,13 @@ import springbootjpaweb.util.ApiResponse;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/member")
+@RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberApiController {
 
     private final MemberService memberService;
 
-    @PostMapping("")
+    @PostMapping("/signup")
     @CrossOrigin(origins ="http://localhost:8081" )
     public ApiResponse<String> loginJoin(@RequestBody MemberRequest memberRequest) {
         memberService.save(memberRequest);

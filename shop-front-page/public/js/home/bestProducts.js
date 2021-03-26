@@ -1,16 +1,16 @@
 export const bestProductsJS = {
-    init: function (){
+    init: function () {
         if ($(".product-row-slider").length) {
             $(".product-row-slider").owlCarousel({
                 autoplay: false,
                 smartSpeed: 300,
-                loop:true,
-                autoplayHoverPause:true,
+                loop: true,
+                autoplayHoverPause: true,
                 dots: false,
                 nav: true,
-                navText: ['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
+                navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
                 responsive: {
-                    0 : {
+                    0: {
                         items: 1
                     },
 
@@ -19,12 +19,12 @@ export const bestProductsJS = {
                         margin: 15
                     },
 
-                    550 : {
+                    550: {
                         items: 3,
                         margin: 15
                     },
 
-                    1200 : {
+                    1200: {
                         items: 4
                     }
                 }

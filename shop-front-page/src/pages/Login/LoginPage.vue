@@ -1,4 +1,4 @@
-<template>
+<template xmlns:th="http://www.w3.org/1999/xhtml">
   <div class="page-wrapper">
   <!-- start page-title -->
   <section class="page-title">
@@ -137,6 +137,7 @@ import store from '../../store/member/index';
 import router from "@/router";
 
 export default {
+  name: 'loginPage',
   data(){
     return{
       user: {
@@ -153,7 +154,6 @@ export default {
   methods:{
     async login() {
       await this.$store.dispatch('member/login', this.user);
-      //await router.push({name: "/"})
     }
   }
 }

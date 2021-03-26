@@ -1,5 +1,3 @@
-import router from '@/router';
-import Axios from 'axios';
 import {
     create,
     login
@@ -9,31 +7,22 @@ import {
 export default{
     namespaced: true,
     state: {
-        userInfo: null,
-        isLogin: false,
-        isLoginError: false,
-        boardList: [],
-        boardDetail: null,
+        member: [],
     },
     mutations: {
         //로그인 성공시
-        loginSuccess(state, payload){
-            state.isLogin = true
-            state.isLoginError = false
-            state.userInfo = payload
+        loginSuccess(state, user){
+            state.user = user;
         },
         //로그인 실패시
         loginError(state){
-            state.isLogin = false
-            state.isLoginError = true
+
         },
         logout(state){
-            state.isLogin = false
-            state.isLoginError = false
-            state.userInfo = null
+            state.user = null;
         },
         boardDetail(state, board){
-            state.boardDetail = board
+            state.boardDetail = board;
         },
         //회원가입
         setSignup(state){
@@ -46,7 +35,7 @@ export default{
         },
         async login({commit}, loginObg){
             const response = await login(loginObg);
-            commit("loginSuccess", response.data)
+            commit("loginSuccess", response.data);
         }
     },
     modules: {}

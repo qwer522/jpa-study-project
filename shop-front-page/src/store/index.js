@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import banner from "./banner/index";
 import product from "./product/index";
+import member from "./member/index"
 
 Vue.use(Vuex)
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
   },
   modules: {
     banner,
-    product
+    product,
+    member
   }
 })

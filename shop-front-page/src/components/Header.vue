@@ -10,7 +10,7 @@
             <span class="icon-bar"></span>
           </button>
           <router-link to="/" custom v-slot="{ navigate }">
-            <a @click="navigate" @keypress.enter="navigate" role="button" class="navbar-brand"><img src="images/logo.png" alt></a>
+            <a @click="navigate" @keypress.enter="navigate" role="button" class="navbar-brand"><img src="/images/logo.png" alt></a>
           </router-link>
         </div>
         <div class="header-left">
@@ -22,7 +22,7 @@
           <div class="side-info-content">
             <button class="btn side-info-close-btn"><i class="ti-close"></i></button>
             <div class="logo">
-              <img src="images/slidbar-logo.png" alt>
+              <img src="/images/slidbar-logo.png" alt>
             </div>
             <div class="text">
               <p>Covered the whole of her lower arm towards the viewer gregor then turned to look out
@@ -82,7 +82,7 @@
               <div class="mini-cart-items">
                 <div class="mini-cart-item clearfix">
                   <div class="mini-cart-item-image">
-                    <a href="shop-single.html"><img src="images/shop/mini-cart/img-1.jpg"
+                    <a href="shop-single.html"><img src="/images/shop/mini-cart/img-1.jpg"
                                                     alt></a>
                   </div>
                   <div class="mini-cart-item-des">
@@ -93,7 +93,7 @@
                 </div>
                 <div class="mini-cart-item clearfix">
                   <div class="mini-cart-item-image">
-                    <a href="shop-single.html"><img src="images/shop/mini-cart/img-2.jpg"
+                    <a href="shop-single.html"><img src="/images/shop/mini-cart/img-2.jpg"
                                                     alt></a>
                   </div>
                   <div class="mini-cart-item-des">

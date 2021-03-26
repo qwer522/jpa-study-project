@@ -71,6 +71,7 @@ import store from '../../store/member/index';
 import router from "@/router";
 
 export default {
+  name: 'signupPage',
   data(){
     return{
       user: {

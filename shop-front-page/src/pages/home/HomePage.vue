@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import SlideBanner from "@/components/home/SlideBanner";
-import FeaturedProduct from "@/components/home/FeaturedProduct";
-import BestProduct from "@/components/home/BestProduct";
-import Category from "@/components/home/Category";
-import Instagram from "@/components/home/Instagram";
+import SlideBanner from "@/pages/home/components/SlideBanner";
+import FeaturedProduct from "@/pages/home/components/FeaturedProduct";
+import BestProduct from "@/pages/home/components/BestProduct";
+import Category from "@/pages/home/components/Category";
+import Instagram from "@/pages/home/components/Instagram";
 
 export default {
   name: 'HomePage',
@@ -43,8 +43,5 @@ export default {
     Category,
     Instagram
   },
-  mounted() {
-    // $.initialize().slider();
-  }
 }
 </script>

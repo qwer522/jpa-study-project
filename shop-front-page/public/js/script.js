@@ -95,16 +95,6 @@ $.initialize = function () {
 
 
     /*------------------------------------------
-        = HERO SLIDER
-    -------------------------------------------*/
-
-
-
-
-
-
-
-    /*------------------------------------------
         = HIDE PRELOADER
     -------------------------------------------*/
     function preloader() {
@@ -319,27 +309,6 @@ $.initialize = function () {
     }
 
 
-    /*------------------------------------------
-                = Header shopping cart toggle
-            -------------------------------------------*/
-        if($(".mini-cart").length) {
-            var cartToggleBtn = $(".cart-toggle-btn");
-            var cartContent = $(".mini-cart-content");
-            var body = $("body");
-
-            cartToggleBtn.on("click", function(e) {
-                cartContent.toggleClass("mini-cart-content-toggle");
-                e.stopPropagation();
-            });
-
-            body.on("click", function() {
-                cartContent.removeClass("mini-cart-content-toggle");
-            }).find(cartContent).on("click", function(e) {
-                e.stopPropagation();
-            });
-        }
-
-
 
     /*------------------------------------------
         = TOGGLE SIDE INFOBAR
@@ -473,41 +442,6 @@ $.initialize = function () {
         });
     }
 
-
-    /*------------------------------------------
-        = PRODUCT ROW SLIDER
-    -------------------------------------------*/
-
-    if ($(".product-row-slider").length) {
-        $(".product-row-slider").owlCarousel({
-            autoplay: false,
-            smartSpeed: 300,
-            loop:true,
-            autoplayHoverPause:true,
-            dots: false,
-            nav: true,
-            navText: ['<i class="ti-angle-left"></i>','<i class="ti-angle-right"></i>'],
-            responsive: {
-                0 : {
-                    items: 1
-                },
-
-                450: {
-                    items: 2,
-                    margin: 15
-                },
-
-                550 : {
-                    items: 3,
-                    margin: 15
-                },
-
-                1200 : {
-                    items: 4
-                }
-            }
-        });
-    }
 
     /*------------------------------------------
         = HOME 3 TOP PRODUCT SLIDER
