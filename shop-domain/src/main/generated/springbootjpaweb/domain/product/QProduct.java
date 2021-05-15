@@ -28,13 +28,13 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath imgPath = createString("imgPath");
 
-    public final StringPath name = createString("name");
-
     public final ListPath<springbootjpaweb.domain.order.OrderProduct, springbootjpaweb.domain.order.QOrderProduct> orderProducts = this.<springbootjpaweb.domain.order.OrderProduct, springbootjpaweb.domain.order.QOrderProduct>createList("orderProducts", springbootjpaweb.domain.order.OrderProduct.class, springbootjpaweb.domain.order.QOrderProduct.class, PathInits.DIRECT2);
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 
     public final NumberPath<Integer> stock = createNumber("stock", Integer.class);
+
+    public final StringPath title = createString("title");
 
     public QProduct(String variable) {
         super(Product.class, forVariable(variable));

@@ -1,6 +1,6 @@
 <template>
 <div class="page-wrapper">
-    <SlideBanner />
+    <MainBanner />
     <FeaturedProduct />
     <BestProduct />
     <Category />
@@ -28,16 +28,16 @@
 </template>
 
 <script>
-import SlideBanner from "@/pages/home/components/SlideBanner";
-import FeaturedProduct from "@/pages/home/components/FeaturedProduct";
-import BestProduct from "@/pages/home/components/BestProduct";
-import Category from "@/pages/home/components/Category";
-import Instagram from "@/pages/home/components/Instagram";
+import MainBanner from "@/pages/Home/components/MainBanner";
+import FeaturedProduct from "@/pages/Home/components/FeaturedProduct";
+import BestProduct from "@/pages/Home/components/BestProduct";
+import Category from "@/pages/Home/components/Category";
+import Instagram from "@/pages/Home/components/Instagram";
 
 export default {
   name: 'HomePage',
   components: {
-    SlideBanner,
+    MainBanner,
     FeaturedProduct,
     BestProduct,
     Category,

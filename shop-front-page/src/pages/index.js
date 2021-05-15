@@ -1,9 +1,10 @@
-import HomePage from './home/HomePage';
+import HomePage from './Home/HomePage';
 import LoginPage from './Login/LoginPage';
 import SignUpPage from './Login/SignUpPage';
 import ShopPage from './Shop/ShopPage';
 import ProductPage from './Shop/ProductPage';
-import CartPage from './cart/cartPage';
+import CartPage from './Cart/CartPage';
+import CheckoutPage from './Checkout/CheckoutPage';
 
 export {
   HomePage,
@@ -11,5 +12,6 @@ export {
   SignUpPage,
   ShopPage,
   ProductPage,
-  CartPage
+  CartPage,
+  CheckoutPage,
 };

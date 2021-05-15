@@ -17,60 +17,32 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="cart_item">
+                                <!--상품리스트-->
+                                <tr v-for="cart in carts2" class="cart_item">
                                     <td class="product-remove">
-                                        <a href="#" class="remove" title="Remove this item" data-product_id="8" data-product_sku="my name is">&times;</a>
+                                      <a href="#" class="remove" title="Remove this item" data-product_id="8" data-product_sku="my name is">&times;</a>
                                     </td>
                                     <td class="product-thumbnail">
-                                        <a href="">
-                                            <img width="57" height="70" src="/images/cart/img-1.jpg"
-                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="#"  />
-                                        </a>
+                                      <a href="">
+                                        <img width="57" height="70" :src="cart.product.imgPath"
+                                             class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="#"  />
+                                      </a>
                                     </td>
                                     <td class="product-name" data-title="Product">
-                                        <a href="http://localhost/wp/?product=new-product">Checked Hoodies Woo</a> </td>
+                                      <a href="http://localhost/wp/?product=new-product">{{ cart.product.title }}</a> </td>
 
                                     <td class="product-price" data-title="Price">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>165.00</span>
+                                      <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{ cart.product.price }} 원</span>
                                     </td>
                                     <td class="product-quantity" data-title="Quantity">
-                                        <div class="quantity">
-                                            <input type="number" step="1" min="0" name="cart[c9f0f895fb98ab9159f51fd0297e236d][qty]" value="2" title="Qty" class="product-count input-text qty text" />
-                                        </div>
+                                      <div class="quantity">
+                                        <input type="number" step="1" min="0" name="cart[c9f0f895fb98ab9159f51fd0297e236d][qty]" v-model="cart.count" title="Qty" class="product-count input-text qty text" />
+                                      </div>
                                     </td>
                                     <td class="product-subtotal" data-title="Total">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>330.00</span>
+                                      <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{ cart.count * cart.product.price }}</span>
                                     </td>
-                                </tr>
-                                <tr class="cart_item">
-                                    <td class="product-remove">
-                                        <a href="#" class="remove" title="Remove this item" data-product_id="21" data-product_sku="">&times;</a>
-                                    </td>
-
-                                    <td class="product-thumbnail">
-                                        <a href="">
-                                            <img width="57" height="70" src="/images/cart/img-2.jpg"
-                                                 class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="#"  />
-                                        </a>
-                                    </td>
-
-                                    <td class="product-name" data-title="Product">
-                                        <a href="http://localhost/wp/?product=21">product2</a> </td>
-
-                                    <td class="product-price" data-title="Price">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>100.00</span>
-                                    </td>
-
-                                    <td class="product-quantity" data-title="Quantity">
-                                        <div class="quantity">
-                                            <input type="number" step="1" min="0" name="cart[3c59dc048e8850243be8079a5c74d079][qty]" value="1" title="Qty" class="product-count input-text qty text" />
-                                        </div>
-                                    </td>
-
-                                    <td class="product-subtotal" data-title="Total">
-                                        <span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>100.00</span>
-                                    </td>
-                                </tr>
+                                  </tr>
                                 <tr>
                                     <td colspan="6" class="actions">
                                         <div class="coupon">
@@ -92,13 +64,13 @@
                                 <h2>합계</h2>
                                 <table class="shop_table shop_table_responsive">
                                     <tr class="cart-subtotal">
-                                        <th>Subtotal</th>
+                                        <th :style="{width:230 + 'px'}">결제예정금액</th>
                                         <td data-title="Subtotal"><span class="woocommerce-Price-amount amount">
-                                                <span class="woocommerce-Price-currencySymbol">&pound;</span>430.00</span>
+                                                <span class="woocommerce-Price-currencySymbol"></span>{{totalPrice}}</span>
                                         </td>
                                     </tr>
                                     <tr class="shipping">
-                                        <th>Shipping</th>
+                                        <th>배송비(미구현)</th>
                                         <td data-title="Shipping">
                                             Free Shipping
                                             <input type="hidden" name="shipping_method[0]" data-index="0" id="shipping_method_0" value="free_shipping:1" class="shipping_method" />
@@ -370,13 +342,13 @@
                                                         <button type="submit" name="calc_shipping" value="1" class="button">Update Totals</button>
                                                     </p>
                                                     <input type="hidden" id="_wpnonced" name="_wpnonce" value="918724a9c2" />
-                                                    <input type="hidden" name="_wp_http_referer" value="/wp/?page_id=5" /> </section>
+                                                    <input type="hidden" name="_wp_http_referer" value="/wp/?page_id=5" /></section>
                                             </form>
                                         </td>
                                     </tr>
 
                                     <tr class="order-total">
-                                        <th>Total</th>
+                                        <th>결제 예정 금액(미구현)</th>
                                         <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">&pound;</span>430.00</span></strong> </td>
                                     </tr>
                                 </table>
@@ -394,11 +366,36 @@
 </template>
 <script>
 import { cartPageJS } from "../../../public/js/cart/cartPage";
+import { mapState } from "vuex";
+import store from "@/store/cart";
 
 export default {
   name:'cartPage',
+  data(){
+    return{
+      carts2: null,
+    }
+  },
+  computed: {
+    ...mapState('cart',['carts']),
+    totalPrice: function (){
+      return this.carts2.reduce((totalPrice, itemCart) =>
+        totalPrice + itemCart.count * itemCart.product.price
+      );
+    }
+  },
   mounted() {
       cartPageJS.init();
-}
+  },
+  created() {
+    this.read();
+  },
+  methods:{
+    async read(){
+      await this.$store.dispatch('cart/read',this.$store.state.member.member.id);
+      this.carts2 = this.$store.state.cart.carts;
+    }
+  }
+
 }
 </script>

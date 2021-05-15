@@ -55,6 +55,7 @@ import store from "@/store/product";
 export default {
   computed: {
     ...mapState('product',['products']),
+
   },
   created() {
     if (this.$store.state.product === undefined){

@@ -76,39 +76,9 @@
             <a href="#"><i class="icon-heart-shape-outline"></i></a>
           </div>
           <div class="mini-cart">
-            <button class="cart-toggle-btn"> <i class="icon-large-paper-bag"></i> <span
-                class="cart-count">3</span></button>
-            <div class="mini-cart-content">
-              <div class="mini-cart-items">
-                <div class="mini-cart-item clearfix">
-                  <div class="mini-cart-item-image">
-                    <a href="shop-single.html"><img src="/images/shop/mini-cart/img-1.jpg"
-                                                    alt></a>
-                  </div>
-                  <div class="mini-cart-item-des">
-                    <a href="shop-single.html">Elegant skirt</a>
-                    <span class="mini-cart-item-quantity">Qty: 1</span>
-                    <span class="mini-cart-item-price">$20.15</span>
-                  </div>
-                </div>
-                <div class="mini-cart-item clearfix">
-                  <div class="mini-cart-item-image">
-                    <a href="shop-single.html"><img src="/images/shop/mini-cart/img-2.jpg"
-                                                    alt></a>
-                  </div>
-                  <div class="mini-cart-item-des">
-                    <a href="shop-single.html">Beautiful tops</a>
-                    <span class="mini-cart-item-quantity">Qty: 1</span>
-                    <span class="mini-cart-item-price">$13.25</span>
-                  </div>
-                </div>
-              </div>
-              <div class="mini-cart-action clearfix">
-                <span class="mini-checkout-price">Subtotal: $215.14</span>
-                <a href="cart.html" class="view-cart-btn">View Cart</a>
-                <a href="checkout.html" class="checkout-btn">Checkout</a>
-              </div>
-            </div>
+            <router-link to="/cart" custom v-slot="{ navigate }">
+              <a @click="navigate" @keypress.enter="navigate" role="button"><i class="icon-large-paper-bag"></i></a>
+            </router-link>
           </div>
         </div>
       </div><!-- end of container -->

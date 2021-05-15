@@ -35,12 +35,11 @@
                 <form class="form">
                   <div class="product-row">
                     <div>
-                      <input class="product-count" type="text" value="1" name="count">
+                      <input class="product-count" type="number" value="1" name="count" v-model.number="cart.count">
+                      <input>
                     </div>
                     <div>
-                      <input type="hidden" name="productId" :value="product.id">
-                      <input type="hidden" name="memberId" :value="member.id">
-                      <button type="submit">장바구니</button>
+                      <button type="button" @click="insertCart">장바구니</button>
                     </div>
                   </div>
                 </form>
@@ -222,13 +221,22 @@ import store from '../../store/product/index';
 
 export default {
   name: 'productPage',
+  data(){
+    return{
+      cart:{
+        member_id: null,
+        product_id: null,
+        count: null
+      }
+    }
+  },
   computed: {
-    ...mapState('product',['product']),
     ...mapState('member',['member']),
+    ...mapState('product',['product']),
   },
   created() {
-    if (this.$store.state.product === undefined){
-      this.$store.registerModule('product', store);
+    if (this.$store.state.cart === undefined){
+      this.$store.registerModule('cart', store);
     }
     this.getProduct();
   },
@@ -236,8 +244,17 @@ export default {
     async getProduct() {
       await this.$store.dispatch('product/getProduct',this.$route.params.id)
       .then(() => ProductPageJS.init());
+    },
+    async insertCart() {
+      this.cart.member_id = this.$store.state.member.member.id;
+      this.cart.product_id = this.$store.state.product.product.id;
+      await this.$store.dispatch('cart/insertCart',this.cart);
+      await alert("추가가 완료되었습니다.");
     }
   },
+  mounted() {
+
+  }
 }
 
 </script>

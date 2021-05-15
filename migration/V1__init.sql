@@ -28,15 +28,30 @@ CREATE TABLE tn_product (
     last_modified_date DATETIME(6) NULL DEFAULT NULL,
     PRIMARY KEY (id)
 );
+CREATE TABLE tn_shipping_address (
+    id BIGINT auto_increment,
+    member_id BIGINT NULL,
+    postal_code INT NULL,
+    address1 VARCHAR(100) NULL,
+    address2 VARCHAR(100) NULL,
+    receiver_name VARCHAR(45) NULL,
+    receiver_phone VARCHAR(45) NULL,
+    message VARCHAR(45) NULL,
+    pickup_location VARCHAR(100) NULL ,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_member_shipping_address
+        FOREIGN KEY (member_id)
+            REFERENCES tn_member (id)
+            ON DELETE NO ACTION
+            ON UPDATE NO ACTION
+);
 CREATE TABLE tn_order (
     id BIGINT auto_increment,
     member_id BIGINT NULL,
+    shipping_address_id BIGINT,
     date DATE NULL,
-    address1 VARCHAR(100) NULL,
-    address2 VARCHAR(100) NULL,
-    address3 VARCHAR(100) NULL,
-    receiver_name VARCHAR(45) NULL,
-    receiver_phone VARCHAR(45) NULL,
+    subtotal_price INT,
+    shipping_price INT,
     total_price INT NULL,
     created_by VARCHAR(45) NULL DEFAULT 'null',
     created_date DATETIME(6) NULL DEFAULT NULL,
@@ -47,25 +62,32 @@ CREATE TABLE tn_order (
       FOREIGN KEY (member_id)
           REFERENCES tn_member (id)
           ON DELETE NO ACTION
+          ON UPDATE NO ACTION,
+    CONSTRAINT fk_shipping_address_order
+      FOREIGN KEY (shipping_address_id)
+          REFERENCES tn_shipping_address (id)
+          ON DELETE NO ACTION
           ON UPDATE NO ACTION
 );
 CREATE TABLE tn_cart (
     id BIGINT auto_increment,
     product_id BIGINT NULL,
     member_id BIGINT NULL,
-    product_count INT NULL,
+    member BIGINT NULL,
+    product BIGINT NULL,
+    count INT NULL,
     created_by VARCHAR(45) NULL DEFAULT 'null',
     created_date DATETIME(6) NULL DEFAULT NULL,
     last_modified_by VARCHAR(45) NULL DEFAULT 'null',
     last_modified_date DATETIME(6) NULL DEFAULT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_member_cart
-     FOREIGN KEY (member_id)
+     FOREIGN KEY (member)
          REFERENCES tn_member (id)
          ON DELETE NO ACTION
          ON UPDATE NO ACTION,
     CONSTRAINT fk_product_cart
-     FOREIGN KEY (product_id)
+     FOREIGN KEY (product)
          REFERENCES tn_product (id)
          ON DELETE NO ACTION
          ON UPDATE NO ACTION
@@ -147,4 +169,9 @@ CREATE TABLE product_imgfile (
          ON DELETE NO ACTION
          ON UPDATE NO ACTION
 );
-INSERT INTO tn_product (category,img_path, title, price, stock) VALUES ('상의','images/product/yaleHoodieGray','예일후드티셔츠',39000,100), ('하의','images/product/brandedJeans','브랜디드진',59000,100), ('신발','images/product/vansOldSkool','반스올드스쿨',49000,100), ('모자','images/product/mlbCap','MLB볼캡',29000,100), ('아우터','images/product/musinsaBasicBlazer','무신사베이식블레이저',69000,100);
+CREATE TABLE mainbanner_imgfile (
+     id BIGINT auto_increment,
+     img_path VARCHAR2(45) NULL,
+     title VARCHAR(45) NULL,
+     subtitle VARCHAR(45) NULL
+);

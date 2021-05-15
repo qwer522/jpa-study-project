@@ -11,27 +11,34 @@ export default{
         product: [],
         bestProducts: [],
     },
-    getter: {
-      getProducts(){
-          return this.state.products;
-      }
+    getters: {
+        getProducts(){
+            return this.state.products;
+        },
+        getProduct(){
+            return this.state.product;
+        },
+        getBestProducts(){
+            return this.state.bestProducts;
+        }
+
     },
     mutations: {
-        getProducts(state, products){
+        setProducts(state, products){
             state.products = products;
         },
-        getProduct(state, product){
+        setProduct(state, product){
             state.product = product;
         }
     },
     actions: {
         async read({commit}){
             const response = await read();
-            commit("getProducts", response);
+            commit("setProducts", response);
         },
         async getProduct({commit},id){
             const response = await getProduct(id);
-            commit("getProduct", response);
+            commit("setProduct", response);
         }
 
 

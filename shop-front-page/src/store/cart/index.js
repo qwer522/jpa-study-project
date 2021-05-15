@@ -1,28 +1,35 @@
 import {
-    read
+    insertCart,
+    getCarts,
 } from '../../service/cart/cartApiService'
 
 
 export default{
     namespaced: true,
     state: {
-        carts: [],
+        carts: [
+
+        ],
     },
-    getter: {
+    getters: {
         getCarts(){
             return this.state.carts;
         }
     },
     mutations: {
-        getCarts(state, carts){
+        insertCart(state, carts){
             state.carts = carts;
         }
     },
     actions: {
-        async read({commit}){
-            const response = await read();
-            commit("getCarts", response);
+        async insertCart({commit}, cartObj){
+            const response = await insertCart(cartObj);
+            commit("insertCart",response);
         },
+        async read({commit},id){
+            const response = await getCarts(id);
+            commit("insertCart",response);
+        }
     },
     modules: {}
 };

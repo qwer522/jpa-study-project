@@ -11,7 +11,6 @@ import springbootjpaweb.service.ProductService;
 import springbootjpaweb.util.ApiResponse;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -23,7 +22,7 @@ public class ProductApiController {
 
     @GetMapping("")
     @CrossOrigin(origins ="http://localhost:8081" )
-    public ApiResponse<List<Product>> loginJoin() {
+    public ApiResponse<List<ProductResponse>> loginJoin() {
         return ApiResponse.ok(productService.read());
     }
 

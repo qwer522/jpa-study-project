@@ -1,27 +1,32 @@
-export default {
+import {
+    read
+} from '../../service/banner/bannerApiService'
+
+
+export default{
     namespaced: true,
     state: {
-        mainBanners: [
-            {
-                "title": "메인 상품1",
-                "subtitle": "Great Lookbook 2021",
-                "image": "images/slider/slide-2.jpg"
-            },
-            {
-                "title": "메인 상품2",
-                "subtitle": "메인 상품2 설명",
-                "image": "images/slider/slide-2.jpg"
-            },
-            {
-                "title": "메인 상품3",
-                "subtitle": "메인 상품3 설명",
-                "image": "images/slider/slide-2.jpg"
-            },
-            {
-                "title": "메인 상품4",
-                "subtitle": "메인 상품4 설명",
-                "image": "images/slider/slide-2.jpg"
-            }
-        ]
-    }
-}
+        mainBanners: [],
+    },
+    getters: {
+        getMainBanners(){
+            return this.state.mainBanners;
+        },
+
+
+    },
+    mutations: {
+        setMainBanners(state, mainBanners){
+            state.mainBanners = mainBanners;
+        },
+    },
+    actions: {
+        async read({commit}){
+            const response = await read();
+            commit("setMainBanners", response);
+            console.log(response);
+        },
+
+    },
+    modules: {}
+};

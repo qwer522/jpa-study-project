@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const MEMBER_BASE_PATH = 'cart';
+const CART_BASE_PATH = 'cart';
 
-export const read = () => axios.get(MEMBER_BASE_PATH + '')
+export const insertCart = (data) => axios.post(CART_BASE_PATH + '',data)
+    .then(({data}) => data.result);
+export const getCarts = (id) => axios.get(CART_BASE_PATH + '/' + id)
     .then(({data}) => data.result);

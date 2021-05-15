@@ -22,13 +22,17 @@ public class QCart extends EntityPathBase<Cart> {
 
     public static final QCart cart = new QCart("cart");
 
+    public final NumberPath<Integer> count = createNumber("count", Integer.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final springbootjpaweb.domain.member.QMember memberId;
+    public final springbootjpaweb.domain.member.QMember member;
 
-    public final NumberPath<Integer> productCount = createNumber("productCount", Integer.class);
+    public final NumberPath<Long> member_id = createNumber("member_id", Long.class);
 
-    public final springbootjpaweb.domain.product.QProduct productId;
+    public final springbootjpaweb.domain.product.QProduct product;
+
+    public final NumberPath<Long> product_id = createNumber("product_id", Long.class);
 
     public QCart(String variable) {
         this(Cart.class, forVariable(variable), INITS);
@@ -48,8 +52,8 @@ public class QCart extends EntityPathBase<Cart> {
 
     public QCart(Class<? extends Cart> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.memberId = inits.isInitialized("memberId") ? new springbootjpaweb.domain.member.QMember(forProperty("memberId")) : null;
-        this.productId = inits.isInitialized("productId") ? new springbootjpaweb.domain.product.QProduct(forProperty("productId")) : null;
+        this.member = inits.isInitialized("member") ? new springbootjpaweb.domain.member.QMember(forProperty("member")) : null;
+        this.product = inits.isInitialized("product") ? new springbootjpaweb.domain.product.QProduct(forProperty("product")) : null;
     }
 
 }

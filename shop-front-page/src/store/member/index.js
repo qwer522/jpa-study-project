@@ -9,33 +9,24 @@ export default{
     state: {
         member: [],
     },
+    getters:{
+      getMember(){
+          return this.state.member;
+      }
+    },
     mutations: {
         //로그인 성공시
-        loginSuccess(state, user){
-            state.user = user;
-        },
-        //로그인 실패시
-        loginError(state){
-
-        },
-        logout(state){
-            state.user = null;
-        },
-        boardDetail(state, board){
-            state.boardDetail = board;
-        },
-        //회원가입
-        setSignup(state){
-
+        loginSuccess(state, member){
+            state.member.id = member;
         }
     },
     actions: {
         async create({commit}, signupObj){
             await create(signupObj);
         },
-        async login({commit}, loginObg){
-            const response = await login(loginObg);
-            commit("loginSuccess", response.data);
+        async login({commit}, member){
+            const response = await login(member);
+            await commit("loginSuccess", response.result.id);
         }
     },
     modules: {}

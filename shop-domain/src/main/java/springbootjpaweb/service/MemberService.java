@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import springbootjpaweb.data.domain.PrincipalDetails;
 import springbootjpaweb.domain.Role;
 import springbootjpaweb.domain.member.Member;
@@ -66,8 +67,4 @@ public class MemberService implements UserDetailsService {
         member.get().lastLoginDateNovation();
 
     }
-
-
-
-
 }

@@ -89,9 +89,8 @@ export default {
   },
   methods:{
     async create() {
-
       await this.$store.dispatch('member/create', this.user);
-      await router.push({name: "login"})
+      await router.push({name: "loginPage"});
     },
   }
 

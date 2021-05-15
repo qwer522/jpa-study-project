@@ -32,7 +32,7 @@
               <div class="u-column1 col-1">
                 <h2>로그인</h2>
                 <form class="woocommerce-form woocommerce-form-login login"
-                      action="http://localhost:8083/login"
+                      @submit.prevent="login"
                       method="post"
                 >
                   <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
@@ -42,7 +42,7 @@
                            name="username"
                            id="username"
                            autocomplete="username"
-                           v-model="user.username"
+                           v-model="member.username"
                     >
                   </p>
                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -51,7 +51,7 @@
                            name="password"
                            id="password"
                            autocomplete="current-password"
-                           v-model="user.password"
+                           v-model="member.password"
                     >
                   </p>
                   <p class="form-row">
@@ -95,41 +95,6 @@
   <!-- end my-account-section -->
 
 
-  <!-- start instagram-section -->
-  <section class="instagram-section">
-    <div class="container-1410">
-      <div class="row">
-        <div class="col col-xs-12">
-          <div class="instagram-inner">
-            <div class="instagram-text">
-              <h3>Follow our instagram</h3>
-              <p>@aviwp.studio</p>
-            </div>
-            <div class="instagram-grids clearfix">
-              <div class="grid">
-                <a href="#"><img src="images/instagram/1.jpg" alt></a>
-              </div>
-              <div class="grid">
-                <a href="#"><img src="images/instagram/3.jpg" alt></a>
-              </div>
-              <div class="grid">
-                <a href="#"><img src="images/instagram/4.jpg" alt></a>
-              </div>
-              <div class="grid">
-                <a href="#"><img src="images/instagram/2.jpg" alt></a>
-              </div>
-              <div class="grid">
-                <a href="#"><img src="images/instagram/5.jpg" alt></a>
-              </div>
-              <div class="grid">
-                <a href="#"><img src="images/instagram/6.jpg" alt></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   </div>
 </template>
 <script>
@@ -140,10 +105,10 @@ export default {
   name: 'loginPage',
   data(){
     return{
-      user: {
+    member: {
         username: null,
         password: null
-      },
+      }
     }
   },
   created() {
@@ -153,7 +118,11 @@ export default {
   },
   methods:{
     async login() {
-      await this.$store.dispatch('member/login', this.user);
+      const formData = new FormData();
+      formData.append('username',this.member.username);
+      formData.append('password',this.member.password);
+      await this.$store.dispatch('member/login', formData);
+      await router.push({name:"homePage"});
     }
   }
 }

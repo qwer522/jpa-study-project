@@ -5,6 +5,7 @@ import springbootjpaweb.domain.product.Product;
 import springbootjpaweb.repository.ProductRepository;
 import springbootjpaweb.representative.ProductResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,8 +17,21 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> read(){
-        return productRepository.findAll();
+    public List<ProductResponse> read(){
+        List<Product> products = productRepository.findAll();
+        List<ProductResponse> productResponseList = new ArrayList<>();
+        for (Product product : products){
+            ProductResponse productResponse = ProductResponse.builder()
+                    .id(product.getId())
+                    .title(product.getTitle())
+                    .imgPath(product.getImgPath())
+                    .category(product.getCategory())
+                    .price(product.getPrice())
+                    .stock(product.getStock())
+                    .build();
+            productResponseList.add(productResponse);
+        }
+        return productResponseList;
     }
 
     public ProductResponse getProduct(Long id){

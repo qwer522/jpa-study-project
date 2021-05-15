@@ -5,20 +5,17 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.NotAudited;
 import springbootjpaweb.data.domain.AbstractAuditable;
 import springbootjpaweb.data.domain.GenerateKey;
 import springbootjpaweb.domain.Role;
+import springbootjpaweb.domain.order.Order;
+import springbootjpaweb.domain.shippingaddress.ShippingAddress;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -65,20 +62,17 @@ public class Member extends AbstractAuditable<Long> {
     @Column(name = "lastLoginDate")
     private LocalDateTime lastLoginDate;
 
-//    @Column(name = "created_by")
-//    private String createBy;
-//
-//    @Column(name = "created_date")
-//    private LocalDateTime createDate;
-//
-//    @Column(name = "last_modified_by")
-//    private String lastModifiedBy;
-//
-//    @Column(name = "last_modified_date")
-//    private LocalDateTime lastModifiedDate;
+    @NotAudited
+    @OneToMany(mappedBy = "member")
+    private final List<ShippingAddress> shippingAddresses = new ArrayList<>();
+
+    @NotAudited
+    @OneToMany(mappedBy = "member")
+    private final List<Order> order = new ArrayList<>();
 
     @Builder
-    public Member (String email, String password, String name, String address1, String address2, String address3, String phone, Role role, LocalDateTime lastLoginDate){
+    public Member (Long id,String email, String password, String name, String address1, String address2, String address3, String phone, Role role, LocalDateTime lastLoginDate){
+        this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;

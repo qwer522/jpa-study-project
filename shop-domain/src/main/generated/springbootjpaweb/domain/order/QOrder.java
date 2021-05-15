@@ -22,23 +22,19 @@ public class QOrder extends EntityPathBase<Order> {
 
     public static final QOrder order = new QOrder("order1");
 
-    public final StringPath address1 = createString("address1");
-
-    public final StringPath address2 = createString("address2");
-
-    public final StringPath address3 = createString("address3");
-
     public final DateTimePath<java.util.Date> date = createDateTime("date", java.util.Date.class);
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
-    public final springbootjpaweb.domain.member.QMember memberId;
+    public final springbootjpaweb.domain.member.QMember member;
 
     public final ListPath<OrderProduct, QOrderProduct> orderProducts = this.<OrderProduct, QOrderProduct>createList("orderProducts", OrderProduct.class, QOrderProduct.class, PathInits.DIRECT2);
 
-    public final StringPath receiver_phone = createString("receiver_phone");
+    public final NumberPath<Integer> shipping_price = createNumber("shipping_price", Integer.class);
 
-    public final StringPath receiverName = createString("receiverName");
+    public final springbootjpaweb.domain.shippingaddress.QShippingAddress shippingAddress;
+
+    public final NumberPath<Integer> subtotal_price = createNumber("subtotal_price", Integer.class);
 
     public final NumberPath<Integer> totalPrice = createNumber("totalPrice", Integer.class);
 
@@ -60,7 +56,8 @@ public class QOrder extends EntityPathBase<Order> {
 
     public QOrder(Class<? extends Order> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.memberId = inits.isInitialized("memberId") ? new springbootjpaweb.domain.member.QMember(forProperty("memberId")) : null;
+        this.member = inits.isInitialized("member") ? new springbootjpaweb.domain.member.QMember(forProperty("member")) : null;
+        this.shippingAddress = inits.isInitialized("shippingAddress") ? new springbootjpaweb.domain.shippingaddress.QShippingAddress(forProperty("shippingAddress"), inits.get("shippingAddress")) : null;
     }
 
 }
