@@ -15,16 +15,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableJpaAuditing
 @SpringBootApplication
 @EnableWebMvc
-public class Application extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
+public class Application {
 
     public static void main(String[] args) {
-        Flyway flyway = Flyway.configure().dataSource("jdbc:h2:mem:testdb", "sa", "").load();
-        flyway.migrate();
         SpringApplication.run(Application.class, args);
     }
 

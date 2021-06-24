@@ -12,11 +12,14 @@ server:
 
 ---
 spring:
-  profiles: local
   flyway:
     enabled: true
     username: sa
-    locations: ['filesystem:./migration']
+    locations: filesystem:migration
+    ignore-missing-migrations: true
+    validate-on-migrate: false
+    baseline-on-migrate: true
+    encoding: UTF-8
   h2:
   console:
     enabled: true
@@ -25,7 +28,6 @@ spring:
       trace: false
       web-allow-others: false
   datasource:
-    platform: h2
     url: jdbc:h2:mem:testdb
     username: sa
     password:
@@ -34,7 +36,7 @@ spring:
     database-platform: H2
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
       naming:
         strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:

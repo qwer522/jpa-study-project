@@ -42,6 +42,7 @@ subprojects {
     // 모든 모듈에서 사용하는 라이브러리
     dependencies {
         compile group: 'org.springframework.boot', name: 'spring-boot-starter-mustache', version: '2.3.4.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
         compile 'com.h2database:h2'
         compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
         compile 'org.springframework.data:spring-data-envers'
@@ -54,6 +55,7 @@ subprojects {
         implementation 'io.projectreactor:reactor-core:3.2.5.RELEASE'
         implementation 'org.springframework.boot:spring-boot-starter-security'
         implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+        implementation group: 'org.hibernate', name: 'hibernate-validator', version: '7.0.1.Final'
         compileOnly 'org.projectlombok:lombok'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
