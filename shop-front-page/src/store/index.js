@@ -1,10 +1,10 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 import banner from "./banner/index";
 import product from "./product/index";
-import member from "./member/index"
-import cart from "./cart/index"
+import member from "./member/index";
+import cart from "./cart/index";
 
 Vue.use(Vuex)
 
