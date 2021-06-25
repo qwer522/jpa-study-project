@@ -7,7 +7,6 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
-import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -22,13 +21,9 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath category = createString("category");
 
-    public final ListPath<springbootjpaweb.domain.category.CategoryProduct, springbootjpaweb.domain.category.QCategoryProduct> categoryProducts = this.<springbootjpaweb.domain.category.CategoryProduct, springbootjpaweb.domain.category.QCategoryProduct>createList("categoryProducts", springbootjpaweb.domain.category.CategoryProduct.class, springbootjpaweb.domain.category.QCategoryProduct.class, PathInits.DIRECT2);
-
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath imgPath = createString("imgPath");
-
-    public final ListPath<springbootjpaweb.domain.order.OrderProduct, springbootjpaweb.domain.order.QOrderProduct> orderProducts = this.<springbootjpaweb.domain.order.OrderProduct, springbootjpaweb.domain.order.QOrderProduct>createList("orderProducts", springbootjpaweb.domain.order.OrderProduct.class, springbootjpaweb.domain.order.QOrderProduct.class, PathInits.DIRECT2);
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 

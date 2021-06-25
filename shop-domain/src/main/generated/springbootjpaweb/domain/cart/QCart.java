@@ -28,11 +28,7 @@ public class QCart extends EntityPathBase<Cart> {
 
     public final springbootjpaweb.domain.member.QMember member;
 
-    public final NumberPath<Long> member_id = createNumber("member_id", Long.class);
-
     public final springbootjpaweb.domain.product.QProduct product;
-
-    public final NumberPath<Long> product_id = createNumber("product_id", Long.class);
 
     public QCart(String variable) {
         this(Cart.class, forVariable(variable), INITS);

@@ -22,7 +22,6 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
-@Audited
 @Table(name = "tn_product")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -47,12 +46,10 @@ public class Product {
     @Column(name = "stock")
     private int stock;
 
-    @NotAudited
-    @OneToMany(mappedBy = "product")
-    private List<CategoryProduct> categoryProducts = new ArrayList<>();
-
-    @NotAudited
-    @OneToMany(mappedBy = "product")
-    private List<OrderProduct> orderProducts = new ArrayList<>();
+//    @OneToMany(mappedBy = "product")
+//    private List<CategoryProduct> categoryProducts = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "product")
+//    private List<OrderProduct> orderProducts = new ArrayList<>();
 
 }

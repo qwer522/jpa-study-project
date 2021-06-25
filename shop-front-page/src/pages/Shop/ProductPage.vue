@@ -226,7 +226,7 @@ export default {
       cart:{
         member_id: null,
         product_id: null,
-        count: null
+        count: 1
       }
     }
   },
@@ -236,7 +236,7 @@ export default {
   },
   created() {
     if (this.$store.state.cart === undefined){
-      this.$store.registerModule('cart', store);
+      this.$store.registerModule('Cart', store);
     }
     this.getProduct();
   },

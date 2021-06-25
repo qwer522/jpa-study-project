@@ -73,8 +73,6 @@ CREATE TABLE tn_cart (
     id BIGINT auto_increment,
     product_id BIGINT NULL,
     member_id BIGINT NULL,
-    member BIGINT NULL,
-    product BIGINT NULL,
     count INT NULL,
     created_by VARCHAR(45) NULL DEFAULT 'null',
     created_date DATETIME(6) NULL DEFAULT NULL,
@@ -82,12 +80,12 @@ CREATE TABLE tn_cart (
     last_modified_date DATETIME(6) NULL DEFAULT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_member_cart
-     FOREIGN KEY (member)
+     FOREIGN KEY (member_id)
          REFERENCES tn_member (id)
          ON DELETE NO ACTION
          ON UPDATE NO ACTION,
     CONSTRAINT fk_product_cart
-     FOREIGN KEY (product)
+     FOREIGN KEY (product_id)
          REFERENCES tn_product (id)
          ON DELETE NO ACTION
          ON UPDATE NO ACTION
@@ -175,3 +173,5 @@ CREATE TABLE mainbanner_imgfile (
      title VARCHAR(45) NULL,
      subtitle VARCHAR(45) NULL
 );
+INSERT INTO tn_product (category,img_path, title, price, stock) VALUES ('상의','/images/product/yaleHoodieGray.jpg','예일후드티셔츠',39000,100), ('하의','/images/product/brandedJeans.jpg','브랜디드진',59000,100), ('신발','/images/product/vansOldSkool.jpg','반스올드스쿨',49000,100), ('모자','/images/product/mlbCap.jpg','MLB볼캡',29000,100), ('아우터','/images/product/musinsaBasicBlazer.jpg','무신사베이식블레이저',69000,100);
+INSERT INTO mainbanner_imgfile (img_path, title, subtitle) VALUES ('images/mainbanner/springMainBanner.jpg','봄맞이','서브타이틀'), ('images/mainbanner/handmadeMainBanner.jpg','핸드메이드','서브타이틀'), ('images/mainbanner/suitMainBanner.jpg','남성정장','서브타이틀');

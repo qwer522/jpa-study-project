@@ -5,8 +5,7 @@ import {
   SignUpPage,
   ProductPage,
   CartPage,
-  CheckoutPage,
-  TestPage,
+  CheckoutPage
 } from '../pages';
 
 export const routes = [
@@ -44,10 +43,5 @@ export const routes = [
     path: '/checkout',
     name: 'checkoutPage',
     component: CheckoutPage
-  },
-  {
-    path: '/test',
-    name: 'test',
-    component: TestPage
   }
 ];

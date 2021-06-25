@@ -23,11 +23,11 @@ export default{
     },
     actions: {
         async insertCart({commit}, cartObj){
-            const response = await insertCart(cartObj);
-            commit("insertCart",response);
+            await insertCart(cartObj);
         },
         async read({commit},id){
             const response = await getCarts(id);
+            console.log("response=====",response);
             commit("insertCart",response);
         }
     },

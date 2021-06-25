@@ -42,7 +42,7 @@ public class MemberService implements UserDetailsService {
                 .role(Role.USER)
                 .build();
         // 객체화를 위해 따로 갱신.
-        member.lastLoginDateNovation();
+//        member.lastLoginDateNovation();
         memberRepository.save(member);
 
     }
@@ -53,7 +53,7 @@ public class MemberService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Member member = memberRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException((username)));
-        member.lastLoginDateNovation();
+//        member.lastLoginDateNovation();
         if(!ObjectUtils.isEmpty(member)){
             return new PrincipalDetails(member);
         }
@@ -64,7 +64,7 @@ public class MemberService implements UserDetailsService {
     public void update(Long id) {
         Optional<Member> member = memberRepository.findById(id);
         // 객체화를 위해 따로 갱신.
-        member.get().lastLoginDateNovation();
+//        member.get().lastLoginDateNovation();
 
     }
 }

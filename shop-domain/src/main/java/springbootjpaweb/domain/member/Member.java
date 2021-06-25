@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.NotAudited;
 import springbootjpaweb.data.domain.AbstractAuditable;
-import springbootjpaweb.data.domain.GenerateKey;
 import springbootjpaweb.domain.Role;
 import springbootjpaweb.domain.order.Order;
 import springbootjpaweb.domain.shippingaddress.ShippingAddress;
@@ -19,7 +18,8 @@ import java.util.List;
 
 @Entity
 @Getter
-@Audited    // 이 어노테이션이 테이블을 생성
+//@Audited    // 이 어노테이션이 테이블을 생성
+@Builder
 @Table(name = "tn_member")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,10 +28,6 @@ public class Member extends AbstractAuditable<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @GenerateKey
-    @Column(name = "key")
-    private String key;
 
     @Column(name = "password")
     private String password;
@@ -62,29 +58,13 @@ public class Member extends AbstractAuditable<Long> {
     @Column(name = "lastLoginDate")
     private LocalDateTime lastLoginDate;
 
-    @NotAudited
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member",fetch = FetchType.LAZY)
     private final List<ShippingAddress> shippingAddresses = new ArrayList<>();
 
-    @NotAudited
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member",fetch = FetchType.LAZY)
     private final List<Order> order = new ArrayList<>();
 
-    @Builder
-    public Member (Long id,String email, String password, String name, String address1, String address2, String address3, String phone, Role role, LocalDateTime lastLoginDate){
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.address3 = address3;
-        this.phone = phone;
-        this.role = role;
-        this.lastLoginDate = lastLoginDate;
-    }
-
-    public void lastLoginDateNovation(){
-        this.lastLoginDate = LocalDateTime.now();
-    }
+//    public void lastLoginDateNovation(){
+//        this.lastLoginDate = LocalDateTime.now();
+//    }
 }
